@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) UNIQUE NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE IF NOT EXISTS results (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  filename VARCHAR(255),
+  original_name VARCHAR(255),
+  width INT,
+  height INT,
+  ai_prob FLOAT,
+  verdict VARCHAR(20),
+  confidence FLOAT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
